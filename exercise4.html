@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-3.1.0.min.js" charset="utf-8"></script>
+    <script src="js/tether.min.js" charset="utf-8"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8" async defer></script>
+    <title>exercise4</title>
+    <style type="text/css">
+    html {
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+    <button onclick="_hide('p:first',this)" class="btn">hide 1</button>
+    <button onclick="_hide('#a',this)" class="btn">hide 2</button>
+    <button onclick="_hide('.a',this)" class="btn">hide 3</button>
+    <p>paragraph 1</p>
+    <p id="a">paragraph 2</p>
+    <p class="a">paragraph 3</p>
+</body>
+
+</html>
+<script type="text/javascript">
+function _show(sel, a) {
+    $(sel).show(100, function() {
+        $(a).attr('onclick', '_hide("' + sel + '",this)').text($(a).text().replace('show', 'hide'));
+    });
+
+}
+
+function _hide(sel, a) {
+    $(sel).hide(100, function() {
+        $(a).attr('onclick', '_show("' + sel + '",this)').text($(a).text().replace('hide', 'show'));
+    });
+}
+</script>
